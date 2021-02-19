@@ -2,3 +2,14 @@
   margin: 0;
   padding: 0;
 }
+
+.app {
+  background-color: aliceblue;
+  padding: 10px;
+}
+
+.app__header {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
