@@ -1,0 +1,16 @@
+.table {
+  margin: 0 auto;
+  margin-top: 20px;
+  overflow: scroll;
+  height: 400px;
+}
+
+.table tr {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.table tr:nth-child(even) {
+  background-color: rgb(223, 200, 245);
+}

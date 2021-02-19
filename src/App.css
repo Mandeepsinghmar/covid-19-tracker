@@ -7,8 +7,12 @@ body {
   background-color: #f5f6fa;
 }
 .app {
-  background-color: aliceblue;
-  padding: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+.app__left {
+  flex: 0.9;
 }
 
 .app__header {
@@ -18,10 +22,21 @@ body {
   margin-bottom: 20px;
   margin-top: 20px;
 }
+.app__logo {
+  font-weight: 900 !important;
+  font-size: 1.5rem !important;
+}
+
 .app__infobox {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 30px;
+}
+
+@media (max-width: 990px) {
+  .app {
+    flex-direction: column;
+  }
 }

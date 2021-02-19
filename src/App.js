@@ -1,5 +1,5 @@
 import react, { useState, useEffect } from 'react';
-import { Select, MenuItem, FormControl, InputLabel } from '@material-ui/core'
+import { Select, Typography, MenuItem, FormControl, Card, InputLabel, CardContent } from '@material-ui/core'
 import './App.css';
 import './Components/InfoBoxes.css'
 import InfoBoxes from './Components/InfoBoxes';
@@ -11,6 +11,7 @@ function App() {
 const [ countries, setCountries] = useState([]);
 const [ country, setCountry] = useState("Worldwide");
 const [ countryInfo, setCountryInfo] = useState({});
+const [ tableData, setTableData] = useState([]);
 
 useEffect(() => {
  
@@ -34,7 +35,9 @@ useEffect(() => {
      value: country.countryInfo.iso2,
    }
    ));
-   setCountries(countries)
+
+   setTableData(data);
+   setCountries(countries);
  });
  };
  countriesData();
@@ -55,16 +58,16 @@ await fetch(url)
   setCountryInfo(data);
   console.log(data);
 })
-
-
 };
 
-  return (
-    <div className="App">
 
-      <div className="app__header">
+  return (
+    <div className="app">
+
+   <div className="app__left">
+   <div className="app__header">
              {/* header */}
-             <h2>covid-19 tracker</h2>
+             <Typography className="app__logo">COVID-19 TRACKER</Typography>
 
             {/* select countries */}
         <FormControl className="app__dropdown">
@@ -90,19 +93,23 @@ await fetch(url)
         <InfoBoxes title="Deaths cases" total={countryInfo.deaths} cases={countryInfo.todayDeaths} />
       </div>
     
-  <div className="app__map">
      <Map />
-   </div> 
 
-   <div className="app__table">
-     <Table countryInfo={countries}/>
-   </div> 
+   </div>
+     
+     <Card className="app__right">
+      <CardContent>
+      <h3>Live cases by country</h3>
+     <Table countries={tableData}/>
+      </CardContent>
+      
 
-   <div className="app__graph">
      <Graph />
-   </div> 
-   
-    </div>
+     </Card>
+
+
+   </div>
+
   );
 }
 

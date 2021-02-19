@@ -1,9 +1,19 @@
-import React from 'react'
+import React from 'react';
+import './table.css';
 
-function Table({countryInfo}) {
+function Table({ countries }) {
     return (
-        <div>
-           
+        <div className="table">
+           {
+             countries.map((country) => (
+                 <tr>
+                     <td>{country.country}</td>
+                     <td>
+                         <strong>{country.cases}</strong>
+                         </td>
+                 </tr>
+             ))
+           }
          
         </div>
     )
