@@ -1,9 +1,10 @@
 import React from 'react'
 
-function Table() {
+function Table({countryInfo}) {
     return (
         <div>
-            <h2>i am a table</h2>
+           
+         
         </div>
     )
 }

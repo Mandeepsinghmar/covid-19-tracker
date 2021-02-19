@@ -1,6 +1,7 @@
 import react, { useState, useEffect } from 'react';
 import { Select, MenuItem, FormControl, InputLabel } from '@material-ui/core'
 import './App.css';
+import './Components/InfoBoxes.css'
 import InfoBoxes from './Components/InfoBoxes';
 import Map from './Components/Map';
 import Graph from './Components/Graph';
@@ -9,6 +10,16 @@ import Table from './Components/Table'
 function App() {
 const [ countries, setCountries] = useState([]);
 const [ country, setCountry] = useState("Worldwide");
+const [ countryInfo, setCountryInfo] = useState({});
+
+useEffect(() => {
+ 
+  fetch('https://disease.sh/v3/covid-19/all')
+  .then(response => response.json())
+  .then(data => {
+    setCountryInfo(data);
+  })
+  }, [])
 
 useEffect(() => {
 
@@ -28,12 +39,23 @@ useEffect(() => {
  };
  countriesData();
  
-}, []);
+}, [countries]);
 
-const onCountryChange = (e) => {
+const onCountryChange = async (e) => {
 const countryCode = e.target.value;
 
-setCountry(countryCode)
+const url = countryCode === 'Worldwide' 
+? 'https://disease.sh/v3/covid-19/all' 
+: `https://disease.sh/v3/covid-19/countries/${countryCode}`
+
+await fetch(url)
+.then(response => response.json())
+.then(data => {
+  setCountry(countryCode);
+  setCountryInfo(data);
+  console.log(data);
+})
+
 
 };
 
@@ -62,9 +84,10 @@ setCountry(countryCode)
       </div>
 
       <div className="app__infobox">
-        <InfoBoxes title="Coronavirus cases" cases="200" total="5M"/>
-        <InfoBoxes title="Recovered cases" cases="300" total="2M"/>
-        <InfoBoxes title="Deaths cases" cases="400" total="4M"/>
+
+        <InfoBoxes title="Coronavirus cases" total={countryInfo.cases} cases={countryInfo.todayCases} />
+        <InfoBoxes title="Recovered cases" total={countryInfo.recovered} cases={countryInfo.todayRecovered} />
+        <InfoBoxes title="Deaths cases" total={countryInfo.deaths} cases={countryInfo.todayDeaths} />
       </div>
     
   <div className="app__map">
@@ -72,7 +95,7 @@ setCountry(countryCode)
    </div> 
 
    <div className="app__table">
-     <Table />
+     <Table countryInfo={countries}/>
    </div> 
 
    <div className="app__graph">

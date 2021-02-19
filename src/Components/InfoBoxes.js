@@ -9,7 +9,10 @@ function InfoBoxes({title, cases, total}) {
              <CardContent>
               <Typography className="infobox__title" color="textSecondary">
                  {title}
+                 
               </Typography >
+
+              
 
               <h2  className="infobox__cases">{cases}</h2>
 
