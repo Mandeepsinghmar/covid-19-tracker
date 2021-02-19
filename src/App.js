@@ -1,10 +1,14 @@
 import react, { useState, useEffect } from 'react';
-import { Select, MenuItem, FormControl } from '@material-ui/core'
+import { Select, MenuItem, FormControl, InputLabel } from '@material-ui/core'
 import './App.css';
+import InfoBoxes from './Components/InfoBoxes';
+import Map from './Components/Map';
+import Graph from './Components/Graph';
+import Table from './Components/Table'
 
 function App() {
 const [ countries, setCountries] = useState([]);
-const [ country, setCountry] = useState(["Worldwide"]);
+const [ country, setCountry] = useState("Worldwide");
 
 useEffect(() => {
 
@@ -24,7 +28,14 @@ useEffect(() => {
  };
  countriesData();
  
-}, [])
+}, []);
+
+const onCountryChange = (e) => {
+const countryCode = e.target.value;
+
+setCountry(countryCode)
+
+};
 
   return (
     <div className="App">
@@ -35,8 +46,10 @@ useEffect(() => {
 
             {/* select countries */}
         <FormControl className="app__dropdown">
-          <Select variant="outlined" value={country} >
-          <MenuItem value="worldwide">Worldwide</MenuItem>
+        
+          <Select variant="outlined" onChange={onCountryChange} value={country} >
+      
+          <MenuItem value="Worldwide">Worldwide</MenuItem>
             {/* loop through all the countries and show a dropdown menu */}
            {countries.map((country) => (
               <MenuItem value={country.value}>{country.name}</MenuItem>
@@ -49,15 +62,23 @@ useEffect(() => {
       </div>
 
       <div className="app__infobox">
-          {/* infoboxes */}
-          {/* infoboxes */}
-          {/* infoboxes */}
-
+        <InfoBoxes title="Coronavirus cases" cases="200" total="5M"/>
+        <InfoBoxes title="Recovered cases" cases="300" total="2M"/>
+        <InfoBoxes title="Deaths cases" cases="400" total="4M"/>
       </div>
     
-      {/* map */}
-      {/* table */}
-      {/* graph */}
+  <div className="app__map">
+     <Map />
+   </div> 
+
+   <div className="app__table">
+     <Table />
+   </div> 
+
+   <div className="app__graph">
+     <Graph />
+   </div> 
+   
     </div>
   );
 }
