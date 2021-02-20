@@ -5,14 +5,16 @@ import './Components/InfoBoxes.css'
 import InfoBoxes from './Components/InfoBoxes';
 import Map from './Components/Map';
 import Graph from './Components/Graph';
-import Table from './Components/Table'
-import { sortData } from './Components/util'
+import Table from './Components/Table';
+import { sortData } from './Components/util';
+
 
 function App() {
 const [ countries, setCountries] = useState([]);
 const [ country, setCountry] = useState("Worldwide");
 const [ countryInfo, setCountryInfo] = useState({});
 const [ tableData, setTableData] = useState([]);
+const [casesType, setCasesType] = useState("cases");
 
 useEffect(() => {
  
@@ -99,12 +101,19 @@ await fetch(url)
      
      <Card className="app__right">
       <CardContent>
-      <h3>Live cases by country</h3>
+        <Typography>
+        <h3>Live cases by country</h3>
+        </Typography>
+     
      <Table countries={tableData}/>
       </CardContent>
       
-
-     <Graph />
+      <Typography>
+        <h3>Worldwide new cases</h3>
+        </Typography>
+   
+        <Graph casesType={casesType}/>
+        {/* <Graph casesType={casesType.recovered}/> */}
      </Card>
 
 

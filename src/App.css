@@ -8,16 +8,15 @@ body {
 }
 .app {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   padding: 20px;
-}
-.app__left {
-  flex: 0.9;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .app__header {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
   margin-top: 20px;

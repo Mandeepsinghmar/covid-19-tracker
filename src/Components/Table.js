@@ -1,21 +1,26 @@
 import React from 'react';
 import './table.css';
+import { Typography } from '@material-ui/core';
 
 function Table({ countries }) {
     return (
-        <div className="table">
+        <Typography className="table">
            {
              countries.map(({ country, cases}) => (
-                 <tr>
+               
+                    
+                      <tr>
                      <td>{country}</td>
                      <td>
                          <strong>{cases}</strong>
                          </td>
                  </tr>
+                
+               
              ))
            }
          
-        </div>
+        </Typography>
     )
 }
 
