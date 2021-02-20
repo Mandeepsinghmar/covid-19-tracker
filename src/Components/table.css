@@ -8,9 +8,12 @@
 .table tr {
   display: flex;
   justify-content: space-between;
-  padding: 5px;
+}
+
+.table td {
+  padding: 0.5rem;
 }
 
 .table tr:nth-child(even) {
-  background-color: rgb(223, 200, 245);
+  background-color: thistle;
 }

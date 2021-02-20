@@ -6,6 +6,7 @@ import InfoBoxes from './Components/InfoBoxes';
 import Map from './Components/Map';
 import Graph from './Components/Graph';
 import Table from './Components/Table'
+import { sortData } from './Components/util'
 
 function App() {
 const [ countries, setCountries] = useState([]);
@@ -36,7 +37,8 @@ useEffect(() => {
    }
    ));
 
-   setTableData(data);
+   const sortedData = sortData(data);
+   setTableData(sortedData);
    setCountries(countries);
  });
  };
@@ -59,8 +61,6 @@ await fetch(url)
   console.log(data);
 })
 };
-
-
   return (
     <div className="app">
 
