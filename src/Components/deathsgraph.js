@@ -63,7 +63,7 @@ const buildChartData = (data, casesType) => {
   return chartData;
 };
 
-function Graph({ casesType }) {
+function DeathGraph({ casesType }) {
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -90,10 +90,8 @@ function Graph({ casesType }) {
           data={{
             datasets: [
               {
-                // backgroundColor: "rgba(204, 16, 52, 0.5)",
-                // borderColor: "#CC1034",
-                backgroundColor:"lightgreen",
-                borderColor:"lightgreen",
+                backgroundColor: "rgba(204, 16, 52, 0.5)",
+                borderColor: "#CC1034",
                 data: data,
               },
             ],
@@ -105,4 +103,4 @@ function Graph({ casesType }) {
   );
 }
 
-export default Graph;
+export default DeathGraph;

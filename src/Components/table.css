@@ -8,10 +8,19 @@
 .table tr {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  border-radius: 10px !important;
 }
 
 .table td {
   padding: 0.4rem;
+  border-radius: 10px !important;
+}
+
+.table__country {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .table tr:nth-child(even) {

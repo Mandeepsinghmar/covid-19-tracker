@@ -7,6 +7,7 @@ import Map from './Components/Map';
 import Graph from './Components/Graph';
 import Table from './Components/Table';
 import { sortData } from './Components/util';
+import DeathGraph from './Components/deathsgraph';
 
 
 function App() {
@@ -15,6 +16,7 @@ const [ country, setCountry] = useState("Worldwide");
 const [ countryInfo, setCountryInfo] = useState({});
 const [ tableData, setTableData] = useState([]);
 const [casesType, setCasesType] = useState("cases");
+const [deathCasesType, setDeathCasesType] = useState("deaths");
 
 useEffect(() => {
  
@@ -40,6 +42,7 @@ useEffect(() => {
    ));
 
    const sortedData = sortData(data);
+ 
    setTableData(sortedData);
    setCountries(countries);
  });
@@ -90,9 +93,9 @@ await fetch(url)
 
       <div className="app__infobox">
 
-        <InfoBoxes title="Coronavirus cases" total={countryInfo.cases} cases={countryInfo.todayCases} />
+        <InfoBoxes title="Coronavirus cases" total={countryInfo.cases} cases={countryInfo.todayCases}  />
         <InfoBoxes title="Recovered cases" total={countryInfo.recovered} cases={countryInfo.todayRecovered} />
-        <InfoBoxes title="Deaths cases" total={countryInfo.deaths} cases={countryInfo.todayDeaths} />
+        <InfoBoxes title="Deaths cases" total={countryInfo.deaths} cases={countryInfo.todayDeaths}  />
       </div>
     
      <Map />
@@ -105,15 +108,19 @@ await fetch(url)
         <h3>Live cases by country</h3>
         </Typography>
      
-     <Table countries={tableData}/>
+     <Table countries={tableData} />
       </CardContent>
       
       <Typography>
-        <h3>Worldwide new cases</h3>
+        <h3 className="app__graph__title" >Worldwide new cases</h3>
         </Typography>
    
-        <Graph casesType={casesType}/>
-        {/* <Graph casesType={casesType.recovered}/> */}
+        <Graph  casesType={casesType}/>
+        <Typography>
+        <h3 className="app__graph__title">Worldwide new deaths</h3>
+        </Typography>
+
+        <Graph  casesType={deathCasesType}/>
      </Card>
 
 
