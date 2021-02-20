@@ -1,5 +1,5 @@
 .table {
-  margin-top: 20px;
+  margin-top: 20px !important;
   overflow: scroll;
   height: 400px;
   color: #6a5d5d;
@@ -8,9 +8,21 @@
 .table tr {
   display: flex;
   justify-content: space-between;
-  padding: 5px;
+  align-items: center;
+  border-radius: 10px !important;
+}
+
+.table td {
+  padding: 0.4rem;
+  border-radius: 10px !important;
+}
+
+.table__country {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .table tr:nth-child(even) {
-  background-color: rgb(223, 200, 245);
+  background-color: thistle;
 }

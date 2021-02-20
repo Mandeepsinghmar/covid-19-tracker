@@ -1,21 +1,27 @@
 import React from 'react';
 import './table.css';
+import { Avatar, Typography } from '@material-ui/core';
 
 function Table({ countries }) {
     return (
-        <div className="table">
+        <Typography className="table">
            {
-             countries.map((country) => (
-                 <tr>
-                     <td>{country.country}</td>
+             countries.map(country => (
+               
+       
+                      <tr>
+                     <td className="table__country"><Avatar alt="flag" src={country.countryInfo.flag}/> {country.country}  </td>
+                     
                      <td>
                          <strong>{country.cases}</strong>
                          </td>
                  </tr>
+                
+           
              ))
            }
          
-        </div>
+        </Typography>
     )
 }
 
