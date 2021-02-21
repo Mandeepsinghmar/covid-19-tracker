@@ -71,10 +71,10 @@ function App() {
         setCountryInfo(data);
         if (typeof data.countryInfo == "undefined") {
           setMapCenter([20, 30]);
-          setMapZoom(2);
+          setMapZoom(8);
         } else {
           setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
-          setMapZoom(4);
+          setMapZoom(14);
         }
       });
   };
