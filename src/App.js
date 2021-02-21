@@ -13,6 +13,7 @@ import {
 } from "@material-ui/core";
 import { sortData, prettyPrintStat, prettyPrintTotal } from "./util";
 import "leaflet/dist/leaflet.css";
+import News from './News';
 
 function App() {
   //Using hooks for managing the state in the functional component
@@ -24,6 +25,23 @@ function App() {
   const [mapZoom, setMapZoom] = useState(2);
   const [mapCountries, setMapCountries] = useState([]);
   const [casesType, setCasesType] = useState("cases");
+ const [newsData, setNewsData] = useState();
+
+
+useEffect(() => {
+
+  const fetchNewsData = async () => {
+    await fetch("http://newsapi.org/v2/everything?q=covid-19&from=2021-01-21&sortBy=publishedAt&apiKey=306e4ef5f4d74db48578dd636437e620")
+    .then(response => response.json())
+    .then((data) => {
+      console.log(data);
+      setNewsData(data);
+    })
+  }
+
+  fetchNewsData();
+
+}, []);
 
   // useEffect - hook in react
   useEffect(() => {
@@ -79,7 +97,10 @@ function App() {
       });
   };
 
+// console.log(newsData)
+
   return (
+
     <div className="app">
       <div className="app__left">
         <div className="app__header">
@@ -135,11 +156,13 @@ function App() {
       <Card className="app__right">
         <CardContent>
           <h3>Live Cases by country </h3>
-          <Table countries={tableData} />
+          <Table countries={tableData}/>
           <h3 className="app__graphTitle">Worldwide new {casesType}</h3>
           <LineGraph className="app__graph" casesType={casesType} />
         </CardContent>
       </Card>
+
+      <News data={newsData}/>
     </div>
   );
 }

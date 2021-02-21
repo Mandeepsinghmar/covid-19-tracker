@@ -8,10 +8,20 @@
 .table tr {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .table td {
   padding: 0.5rem;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.table td img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
 }
 
 .table tr:nth-of-type(odd) {
