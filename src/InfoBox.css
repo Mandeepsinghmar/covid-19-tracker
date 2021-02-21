@@ -1,9 +1,6 @@
 .infoBox {
   flex: 1;
-}
-
-.infoBox:not(:last-child) {
-  margin-right: 10px;
+  cursor: pointer;
 }
 
 .infoBox--selected {
@@ -14,8 +11,8 @@
   border-color: red;
 }
 
-.infoBox__cases--green {
-  color: lightgreen !important;
+.infoBox:not(:last-child) {
+  margin-right: 15px;
 }
 
 .infoBox__cases {
@@ -25,9 +22,19 @@
   margin-bottom: 0.5rem;
 }
 
+.infoBox__cases--green {
+  color: lightgreen !important;
+}
+
 .infoBox__total {
   color: #6c757d;
   font-weight: 700 !important;
-  font-size: 0.8rem !important;
+  font-size: 1.1rem !important;
   margin-top: 15px !important;
+}
+
+@media (max-width: 990px) {
+  .infoBox__cases {
+    font-size: 1.5rem;
+  }
 }
