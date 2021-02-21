@@ -1,46 +1,52 @@
 * {
   margin: 0;
-  padding: 0;
 }
 
 body {
   background-color: #f5f6fa;
 }
+
 .app {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  background-color: #f5f6fa;
   padding: 20px;
-  max-width: 1400px;
-  margin: 0 auto;
+}
+
+.app__dropdown {
+  background-color: white;
 }
 
 .app__header {
   display: flex;
+  align-items: center;
+  margin-bottom: 20px;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-.app__logo {
-  font-weight: 900 !important;
-  font-size: 1.5rem !important;
 }
 
-.app__infobox {
+.app__header > h1 {
+  color: #fc3c3c;
+  font-size: 2rem;
+}
+
+.app__stats {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 30px;
+  justify-content: space-between;
 }
 
-.app__graph__title {
-  margin-bottom: 20px;
-  margin-top: 30px;
+.app__left {
+  flex: 0.9;
+}
+
+.app__information > h3 {
+  color: #6a5d5d;
+  font-weight: 400;
   font-size: 1.5rem;
-  text-align: center;
-  border-top: 2px solid #f5f6fa;
-  padding: 20px;
+  margin-bottom: 1rem;
+}
+
+.app__information > h3:last-of-type {
+  margin-top: 1rem;
 }
 
 @media (max-width: 990px) {

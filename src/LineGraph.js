@@ -63,12 +63,12 @@ const buildChartData = (data, casesType) => {
   return chartData;
 };
 
-function DeathGraph({ casesType }) {
+function LineGraph({ casesType }) {
   const [data, setData] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
-      await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=1000")
+      await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
         .then((response) => {
           return response.json();
         })
@@ -103,4 +103,4 @@ function DeathGraph({ casesType }) {
   );
 }
 
-export default DeathGraph;
+export default LineGraph;
