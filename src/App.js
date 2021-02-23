@@ -33,7 +33,7 @@ useEffect(() => {
   const date = new Date();
 
   const fetchNewsData = async () => {
-    await fetch(`http://newsapi.org/v2/everything?q=covid-19&from=${date}&sortBy=popularity&apiKey=306e4ef5f4d74db48578dd636437e620`)
+    await fetch(`http://newsapi.org/v2/everything?q=covid-19&from=${date}&sortBy=publishedAt&apiKey=306e4ef5f4d74db48578dd636437e620`)
     .then(response => response.json())
     .then((data) => {
       console.log(data);
@@ -104,12 +104,14 @@ useEffect(() => {
   return (
 
     <div className="app">
+      <div className="app__container">
       <div className="app__left">
         <div className="app__header">
           <h1>COVID-19 TRACKER</h1>
           {/* <img className="app__headerimg" src={logo} alt="COVID-19 TRACKER" /> */}
           <FormControl className="app__dropdown">
             <Select
+            className="app__select"
               variant="outlined"
               value={country}
               onChange={onCountryChange}
@@ -122,7 +124,10 @@ useEffect(() => {
           </FormControl>
         </div>
 
+
+        <h1>Global Data</h1>
         <div className="app__stats">
+        
           <InfoBox
             isRed
             active={casesType === "cases"}
@@ -164,7 +169,13 @@ useEffect(() => {
         </CardContent>
       </Card>
 
-      <News data={newsData}/>
+
+      </div>
+      <div className="news">
+        <h1>Coronavirus latest news</h1>
+      <News className="app__news" data={newsData}/>
+      </div>
+
     </div>
   );
 }
