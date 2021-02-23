@@ -16,10 +16,11 @@ h1 {
 
 .app__container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-direction: row;
 }
 .app__left {
-  flex: 0.9;
+  flex: 0.6;
 }
 
 .app__dropdown {
@@ -32,20 +33,20 @@ h1 {
 }
 
 .app__header > h1 {
-  color: #fc3c3c;
+  color: #000;
   font-size: 2rem;
 }
 
 .app__header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 20px;
 }
 
 .app__stats {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-bottom: 20px;
 }
 
@@ -53,51 +54,50 @@ h1 {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  background-color: #e5eaf5 !important;
 }
 
-.app__right .MuiCardContent-root {
+/* .app__right .MuiCardContent-root {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-}
+} */
 
 .app__graph {
   flex-grow: 1;
 }
 
 .app__graphTitle {
-  margin-top: 20px;
+  margin-top: 50px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.app__headerimg {
-  height: 50px;
-  object-fit: contain;
-}
-
-/* .app__news {
-  display: flex;
-} */
-.news h1 {
+.app__news h1 {
   text-align: center;
   margin-top: 50px;
   padding: 5px;
   border-top: 1px solid #161130;
 }
 @media (max-width: 990px) {
-  .app {
+  .app__container {
     flex-direction: column;
   }
+
   .app__right {
     margin-top: 20px;
   }
 }
 
 @media (min-width: 991px) {
-  .app {
+  .app__container {
     flex-direction: row;
   }
 
-  .app__left {
-    flex: 0.9;
+  .app__right {
+    flex: 0.3;
   }
+  /* .app__left {
+    flex: 1;
+  } */
 }
