@@ -112,8 +112,7 @@ useEffect(() => {
          
 <FormControl className="app__dropdown">
   
-<Select >
-            className="app__select"
+<Select  className="app__select"
               variant="outlined"
               value={country}
               onChange={onCountryChange}
