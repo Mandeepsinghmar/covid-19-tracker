@@ -172,7 +172,7 @@ useEffect(() => {
 
       </div>
       <div className="news">
-        <h1>Coronavirus latest news</h1>
+        <h1>Coronavirus Latest News</h1>
       <News className="app__news" data={newsData}/>
       </div>
 

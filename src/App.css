@@ -79,8 +79,8 @@ h1 {
 } */
 .news h1 {
   text-align: center;
-  margin-top: 30px;
-  padding: 10px;
+  margin-top: 50px;
+  padding: 5px;
   border-top: 1px solid #161130;
 }
 @media (max-width: 990px) {
