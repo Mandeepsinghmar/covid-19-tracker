@@ -15,6 +15,7 @@ import { sortData, prettyPrintStat, prettyPrintTotal } from "./util";
 import "leaflet/dist/leaflet.css";
 import News from './News';
 
+
 function App() {
   //Using hooks for managing the state in the functional component
   const [countries, setCountries] = useState(["USA", "UK", "INDIA"]);
@@ -22,7 +23,7 @@ function App() {
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
   const [mapCenter, setMapCenter] = useState({ lat: 20, lng: 30 });
-  const [mapZoom, setMapZoom] = useState(2);
+  const [mapZoom, setMapZoom] = useState(3);
   const [mapCountries, setMapCountries] = useState([]);
   const [casesType, setCasesType] = useState("cases");
  const [newsData, setNewsData] = useState();
@@ -33,7 +34,7 @@ useEffect(() => {
   const date = new Date();
 
   const fetchNewsData = async () => {
-    await fetch(`http://newsapi.org/v2/everything?q=covid-19&from=${date}&sortBy=popularity&apiKey=306e4ef5f4d74db48578dd636437e620`)
+    await fetch(`http://newsapi.org/v2/everything?q=covid-19&from=${date}&sortBy=publishedAt&apiKey=306e4ef5f4d74db48578dd636437e620`)
     .then(response => response.json())
     .then((data) => {
       console.log(data);
@@ -101,28 +102,38 @@ useEffect(() => {
 
 // console.log(newsData)
 
+
   return (
 
     <div className="app">
-      <div className="app__left">
-        <div className="app__header">
-          <h1>COVID-19 TRACKER</h1>
-          {/* <img className="app__headerimg" src={logo} alt="COVID-19 TRACKER" /> */}
-          <FormControl className="app__dropdown">
-            <Select
+      
+      <div className="app__header">
+          <h1>COVID TRACKER</h1>
+         
+<FormControl className="app__dropdown">
+  
+<Select >
+            className="app__select"
               variant="outlined"
               value={country}
               onChange={onCountryChange}
-            >
+             >
               <MenuItem value="worldwide">Worldwide</MenuItem>
               {countries.map((country) => (
                 <MenuItem value={country.value}>{country.name}</MenuItem>
               ))}
             </Select>
-          </FormControl>
-        </div>
 
+  </FormControl>           
+        
+        </div>
+      <div className="app__container">
+
+      <div className="app__left">
+      
+        <h1>Global Data</h1>
         <div className="app__stats">
+        
           <InfoBox
             isRed
             active={casesType === "cases"}
@@ -155,6 +166,9 @@ useEffect(() => {
           zoom={mapZoom}
         />
       </div>
+
+
+
       <Card className="app__right">
         <CardContent>
           <h3>Live Cases by country </h3>
@@ -164,7 +178,13 @@ useEffect(() => {
         </CardContent>
       </Card>
 
+      </div>
+      <div className="app__news">
+        <h1>Coronavirus Latest News</h1>
       <News data={newsData}/>
+      </div>
+
+
     </div>
   );
 }
