@@ -8,7 +8,7 @@ const date = new Date();
 
     return (
         <div className="news__card">
-          { data && data.map((news, index) => (
+          { data && data.map((news, i) => (
         //    console.log(news)
            <div  className="newsarticle__container" >
                  
