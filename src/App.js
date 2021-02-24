@@ -26,7 +26,25 @@ function App() {
   const [mapZoom, setMapZoom] = useState(3);
   const [mapCountries, setMapCountries] = useState([]);
   const [casesType, setCasesType] = useState("cases");
+ const [newsData, setNewsData] = useState();
 
+
+useEffect(() => {
+
+  const date = new Date();
+
+  const fetchNewsData = async () => {
+    await fetch(`https://newsapi.org/v2/everything?q=covid-19&from=${date}&sortBy=publishedAt&apiKey=306e4ef5f4d74db48578dd636437e620`)
+    .then(response => response.json())
+    .then((data) => {
+      console.log(data);
+      setNewsData(data);
+    })
+  }
+
+  fetchNewsData();
+
+}, []);
 
   // useEffect - hook in react
   useEffect(() => {
@@ -162,7 +180,7 @@ function App() {
       </div>
       <div className="app__news">
         <h1>Coronavirus Latest News</h1>
-      <News />
+      <News data={newsData}/>
       </div>
 
 
