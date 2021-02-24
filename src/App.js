@@ -13,7 +13,7 @@ import {
 } from "@material-ui/core";
 import { sortData, prettyPrintStat, prettyPrintTotal } from "./util";
 import "leaflet/dist/leaflet.css";
-import News from './News';
+import NewsArticle from "./NewsArticle";
 
 
 function App() {
@@ -33,12 +33,23 @@ useEffect(() => {
 
   const date = new Date();
 
-  const fetchNewsData = async () => {
-    await fetch(`https://newsapi.org/v2/everything?q=covid-19&from=${date}&sortBy=publishedAt&apiKey=306e4ef5f4d74db48578dd636437e620`)
+  const fetchNewsData =  () => {
+    const globalPromise = fetch(
+      'https://coronavirus-smartable.p.rapidapi.com/news/v1/US/',
+      {
+        headers: {
+          "x-rapidapi-key": "bc6835fed4msh98afeb778d02be8p1b0388jsn0da601751930",
+	"x-rapidapi-host": "coronavirus-smartable.p.rapidapi.com",
+	"useQueryString": true
+        },
+      }
+    );
+    
+    globalPromise
     .then(response => response.json())
     .then((data) => {
-      console.log(data);
-      setNewsData(data);
+      console.log(data.news);
+      setNewsData(data.news);
     })
   }
 
@@ -180,7 +191,7 @@ useEffect(() => {
       </div>
       <div className="app__news">
         <h1>Coronavirus Latest News</h1>
-      <News data={newsData}/>
+      <NewsArticle data={newsData}/>
       </div>
 
 

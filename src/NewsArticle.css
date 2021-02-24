@@ -1,6 +1,6 @@
-.news {
+.news__card {
   display: flex;
-  max-width: 900px;
+  max-width: 1200px;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
@@ -16,20 +16,12 @@
   text-decoration: none;
   color: #fff;
   cursor: default;
-  min-height: 350px;
-  max-height: 700px;
-  max-width: 250px;
+  min-height: 150px;
+  max-width: 450px;
 }
 .title {
   font-size: 0.9rem;
-  margin-top: -50px;
-  padding: 0 10px;
-}
-.date {
-  font-size: 0.7rem;
-  margin-top: -40px;
-  color: aliceblue;
-  padding: 0 10px;
+  padding: 10px;
 }
 
 img {
@@ -40,20 +32,19 @@ img {
   background-size: cover;
 }
 
-button {
+a {
   cursor: pointer;
-  max-width: 90px;
-  max-height: 40px;
   background-color: #fff;
   border: 2px solid #fff;
   border-radius: 2px;
   color: #161130;
   margin: 0 auto;
-  margin-top: -20px;
-  /* margin-bottom: -50px; */
-  padding: 5px;
+  padding: 2px 5px;
+  text-decoration: none;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
-button:hover {
+a:hover {
   color: #fff;
   background-color: #161130;
 }
