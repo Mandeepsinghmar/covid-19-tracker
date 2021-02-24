@@ -79,10 +79,7 @@ h1 {
   padding: 5px;
   border-top: 1px solid #161130;
 }
-.app__news {
-  overflow: scroll;
-  height: 500px;
-}
+
 @media (max-width: 990px) {
   .app__container {
     flex-direction: column;

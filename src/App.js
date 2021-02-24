@@ -31,22 +31,20 @@ function App() {
 
 useEffect(() => {
 
-  const date = new Date();
-
   const fetchNewsData =  () => {
-    const globalPromise = fetch(
-      'https://coronavirus-smartable.p.rapidapi.com/news/v1/US/',
+    fetch('https://coronavirus-smartable.p.rapidapi.com/news/v1/US/',
       {
         headers: {
           "x-rapidapi-key": "bc6835fed4msh98afeb778d02be8p1b0388jsn0da601751930",
 	"x-rapidapi-host": "coronavirus-smartable.p.rapidapi.com",
-	"useQueryString": true
+	"useQueryString": true,
+  'Content-Type': 'application/json',
+  mode: 'no-cors',
         },
-        mode: "cors"
+      
+        cache: 'no-cache'
       }
-    );
-    
-    globalPromise
+    )
     .then(response => response.json())
     .then((data) => {
       console.log(data.news);
