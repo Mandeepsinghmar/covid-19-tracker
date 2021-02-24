@@ -42,6 +42,7 @@ useEffect(() => {
 	"x-rapidapi-host": "coronavirus-smartable.p.rapidapi.com",
 	"useQueryString": true
         },
+        mode: 'no-cors'
       }
     );
     
