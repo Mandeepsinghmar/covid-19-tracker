@@ -22,10 +22,13 @@
   max-width: 450px;
 }
 .title {
+  font-size: 1rem;
+  padding: 10px;
+}
+.desc {
   font-size: 0.9rem;
   padding: 10px;
 }
-
 img {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
