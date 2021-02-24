@@ -1,8 +1,15 @@
 .infoBox {
+  display: flex;
   flex: 1;
+  justify-content: space-evenly;
   cursor: pointer;
   background-color: #161130 !important;
   color: #fff !important;
+  min-width: 150px;
+  margin: 0 auto;
+  margin: 10px;
+  flex-wrap: wrap;
+  flex-grow: 1;
 }
 
 .infoBox__title {

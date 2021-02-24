@@ -31,8 +31,8 @@ function App() {
 
 useEffect(() => {
 
-  const fetchNewsData =  () => {
-    fetch('https://coronavirus-smartable.p.rapidapi.com/news/v1/US/',
+  const fetchNewsData =  async () => {
+    await fetch('https://coronavirus-smartable.p.rapidapi.com/news/v1/US/',
       {
         headers: {
           "x-rapidapi-key": "bc6835fed4msh98afeb778d02be8p1b0388jsn0da601751930",
@@ -136,11 +136,12 @@ useEffect(() => {
   </FormControl>           
         
         </div>
-      <div className="app__container">
 
+        
+      <div className="app__container">
+     
       <div className="app__left">
       
-        <h1>Global Data</h1>
         <div className="app__stats">
         
           <InfoBox
@@ -166,6 +167,7 @@ useEffect(() => {
             cases={prettyPrintStat(countryInfo.todayDeaths)}
             total={prettyPrintTotal(countryInfo.deaths)}
           />
+        
         </div>
 
         <Map
@@ -188,10 +190,10 @@ useEffect(() => {
       </Card>
 
       </div>
-      <div className="app__news">
+      <Card className="app__news">
         <h1>Coronavirus Latest News</h1>
       <NewsArticle data={newsData}/>
-      </div>
+      </Card>
 
 
     </div>
