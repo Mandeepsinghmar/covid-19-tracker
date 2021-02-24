@@ -11,7 +11,7 @@ const date = new Date();
           { data && data.map((news, index) => (
         //    console.log(news)
            <div  className="newsarticle__container" >
-              {/* <img alt={index} src={news.images[0].url} /> */}      
+              <img alt={index} src={news.images[0].url} />      
            <p className="title">{news.title}</p>
            <p className="desc">{news.excerpt}</p>
            <a href={news.originalUrl} target="_blank">Read Article</a>
