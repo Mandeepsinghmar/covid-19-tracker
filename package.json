@@ -1,6 +1,7 @@
 {
   "name": "covid-tracker",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.3",
